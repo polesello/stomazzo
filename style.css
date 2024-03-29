@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  overscroll-behavior: none;
+}
+body {
+    background: url(img/tavolo.jpg) repeat-y center top;
+  background-size: cover;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+}
+#wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 100%;   
+}
+#mazzo {
+
+  display: flex;
+  position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s;
+}
+#mazzo.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#mazzo #titolo {
+    position: absolute;
+    top: 290px;
+    left: 50px;
+    width: 320px;
+    display: none;
+    pointer-events: none;
+}
+
+.group {
+    width: 25%;
+    padding: 10px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+#homepage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+    height: 100vh;
+    height: 100dvh;
+}
+#homepage.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#homepage #logo {
+    background: rgba(255, 255, 255, .6);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#homepage #logo img {
+    width: 320px;
+}
+
+#homepage div[id$="Enabled"] {
+    position: absolute;
+    bottom: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+#homepage #cameraEnabled {
+    right: 180px;
+}
+
+#homepage #nfcEnabled {
+    right: 140px;
+}
+
+#homepage #lockEnabled {
+    right: 100px;
+}
+
+#homepage #voiceEnabled {
+    right: 60px;
+}
+
+#homepage #orientationEnabled {
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+#homepage #istruzioni {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-mode] {
+    font-size: 30px;
+    margin: 10px 10px 0;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    background-color: rgba(220, 220, 220, .8);
+}
+
+[data-mode].active {
+    background: #fff;
+}
+
+.settings {
+    background: #fff;
+    padding: 20px 20px 0;
+    border-radius: 15px;
+    margin: 40px 15px 15px;
+}
+
+.settings input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+.card {
+    position: relative;
+    transition: transform 3s 5s;
+}
+
+.card.missing {
+    transform: scale(10) translateX(-500px);
+}
+.card.rientra {
+    transform: scale(.5) translateX(2000px) !important;
+    transition: transform 3s !important;
+}
+/* #mazzo .card:hover {
+    transform: scale(1.1) translate(0, -30%);
+} */
+#mazzo .card:not(:first-child) {
+    margin-top: -90%;
+}
+
+
+#scelta {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+    overflow: hidden;
+    height: 100%;
+}
+#scelta.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.flip-card {
+background-color: transparent;
+height: 70vh;
+padding: 0 20px;
+perspective: 1000px;
+}
+
+
+
+#scelta img {
+height: 100%;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+
+.flip-card-inner.backside {
+transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden; /* Safari */
+backface-visibility: hidden;
+}
+
+.flip-card-back {
+transform: rotateY(180deg);
+}
+
+#scelta .photo {
+
+object-fit: cover;
+border-radius: 15px;
+border: 1px solid #000;
+width: calc(100vw - 40px);
+height: calc((100vw - 40px) / .725);
+margin-top: 30px;
+}
+
+#annulla-scelta {
+    display: block;
+    margin: 0 auto;
+    bottom: 30px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 99px;
+}
+
+/* Proprietà da usare sul telefono di chi legge il tag NFC */
+#scelta.standalone #annulla-scelta {
+    display: none;
+}
+
+#scelta.standalone .card {
+    transition: none;
+    position: relative;
+}
+
+
+
+#canvas {
+    display: none;
+}
+#video {
+    display: none;
+}
+
+#mazzo.finale {
+flex-direction: column;
+transform: scale(2);
+transform-origin: top right;
+}
+
+#mazzo.finale #titolo {
+opacity: 1;
+animation: shake 2s 5;
+display: block;
+}
+@keyframes shake {
+0% { transform: rotate(0deg); }
+10% { transform: rotate(10deg); }
+20% { transform: rotate(-10deg); }
+30% { transform: rotate(10deg); }
+40% { transform: rotate(-10deg); }
+50% { transform: rotate(10deg); }
+60% { transform: rotate(-10deg); }
+70% { transform: rotate(10deg); }
+80% { transform: rotate(-10deg); }
+90% { transform: rotate(10deg); }
+100% { transform: rotate(0deg); }
+
+}
+
+#mazzo.finale.left {
+transform-origin: top left;
+}
+
+
+#mazzo.finale .group {
+width: 100%;
+padding: 10px;
+display: flex;
+height: 70px;
+}
+
+#mazzo.finale .card:first-child {
+margin-left: 0 !important; /* important per sovrascrivere il css inline */
+}
+
+#mazzo.finale .card:not(:first-child) {
+margin-top: 0;
+margin-left: -25px; /* corretto poi via JS */
+}
+#mazzo.finale img {
+width: 50px;
+}
+#mazzo.finale .card {
+transition: none;
+transform: translateY(-1200px);
+}
+
+#mazzo.finale .card.visible {
+transform: translateY(0);
+transition: transform 1s;
+}

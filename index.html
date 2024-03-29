@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sai chi ti saluta? ’Sto mazzo!</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="description" content="App magica che permette di indovinare in vari modi la carta scelta dallo spettatore.">
+  <meta property="og:description" content="App magica che permette di indovinare in vari modi la carta scelta dallo spettatore.">
+  <meta property="og:title" content="Stomazzo">
+  <meta property="og:url" content="https://stomazzo.it/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://stomazzo.it/img/screenshot.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#153b02">
+  <link rel="icon" href="img/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="wrapper">
+
+    <div id="homepage">
+        <div id="logo">
+            <img src="img/logo.png" alt="Stomazzo">
+        </div>
+
+        <div class="modes">
+            <div data-mode="picche" class="active">♠️</div>
+            <div data-mode="voice">💬</div>
+            <div data-mode="vibrate">📳</div>
+            <div data-mode="flash">⚡️</div>
+            <div data-mode="nfc">🛜</div>
+        </div>
+
+        <div class="settings">
+            <label for="frase-scelta">💬 Annuncio carta</label>
+            <input type="text" id="frase-scelta" value="Hai scelto il" placeholder="Hai scelto il">
+
+            <label for="frase-foto">⚡️ Annuncio foto</label>
+            <input type="text" id="frase-foto" value="Pronti per la foto? 5, 4, 3, 2, 1" placeholder="Pronti per la foto? 5, 4, 3, 2, 1">
+
+            <label for="frase-joker">🛜 Annuncio Joker</label>
+            <input type="text" id="frase-joker" value="Si è verificato un problema, la carta è stata rubata" placeholder="Si è verificato un problema, la carta è stata rubata">
+        </div>
+
+        <a id="istruzioni" href="https://figherie.it/app/stomazzo/istruzioni/" target="_blank">ℹ️ Istruzioni</a>
+
+        <div id="cameraEnabled">📷</div>
+        <div id="nfcEnabled">🛜</div>
+        <div id="lockEnabled">🔒</div>
+        <div id="voiceEnabled">🗣️</div>
+        <div id="orientationEnabled">🔄</div>
+
+    </div>
+
+
+
+    <div id="mazzo">
+<div class="group">
+    <img src="cards/1H.svg" data-cardid="1H" class="card" alt="Asso di cuori">
+    <img src="cards/2H.svg" data-cardid="2H" class="card" alt="Due di cuori">
+    <img src="cards/3H.svg" data-cardid="3H" class="card" alt="Tre di cuori">
+    <img src="cards/4H.svg" data-cardid="4H" class="card" alt="Quattro di cuori">
+    <img src="cards/5H.svg" data-cardid="5H" class="card" alt="Cinque di cuori">
+    <img src="cards/6H.svg" data-cardid="6H" class="card" alt="Sei di cuori">
+    <img src="cards/7H.svg" data-cardid="7H" class="card" alt="Sette di cuori">
+    <img src="cards/8H.svg" data-cardid="8H" class="card" alt="Otto di cuori">
+    <img src="cards/9H.svg" data-cardid="9H" class="card" alt="Nove di cuori">
+    <img src="cards/10H.svg" data-cardid="10H" class="card" alt="Dieci di cuori">
+    <img src="cards/11H.svg" data-cardid="11H" class="card" alt="Jack di cuori">
+    <img src="cards/12H.svg" data-cardid="12H" class="card" alt="Donna di cuori">
+    <img src="cards/13H.svg" data-cardid="13H" class="card" alt="Re di cuori">
+</div>
+<div class="group">
+    <img src="cards/1D.svg" data-cardid="1D" class="card" alt="Asso di quadri">
+    <img src="cards/2D.svg" data-cardid="2D" class="card" alt="Due di quadri">
+    <img src="cards/3D.svg" data-cardid="3D" class="card" alt="Tre di quadri">
+    <img src="cards/4D.svg" data-cardid="4D" class="card" alt="Quattro di quadri">
+    <img src="cards/5D.svg" data-cardid="5D" class="card" alt="Cinque di quadri">
+    <img src="cards/6D.svg" data-cardid="6D" class="card" alt="Sei di quadri">
+    <img src="cards/7D.svg" data-cardid="7D" class="card" alt="Sette di quadri">
+    <img src="cards/8D.svg" data-cardid="8D" class="card" alt="Otto di quadri">
+    <img src="cards/9D.svg" data-cardid="9D" class="card" alt="Nove di quadri">
+    <img src="cards/10D.svg" data-cardid="10D" class="card" alt="Dieci di quadri">
+    <img src="cards/11D.svg" data-cardid="11D" class="card" alt="Jack di quadri">
+    <img src="cards/12D.svg" data-cardid="12D" class="card" alt="Donna di quadri">
+    <img src="cards/13D.svg" data-cardid="13D" class="card" alt="Re di quadri">
+</div>
+<div class="group">
+    <img src="cards/1C.svg" data-cardid="1C" class="card" alt="Asso di fiori">
+    <img src="cards/2C.svg" data-cardid="2C" class="card" alt="Due di fiori">
+    <img src="cards/3C.svg" data-cardid="3C" class="card" alt="Tre di fiori">
+    <img src="cards/4C.svg" data-cardid="4C" class="card" alt="Quattro di fiori">
+    <img src="cards/5C.svg" data-cardid="5C" class="card" alt="Cinque di fiori">
+    <img src="cards/6C.svg" data-cardid="6C" class="card" alt="Sei di fiori">
+    <img src="cards/7C.svg" data-cardid="7C" class="card" alt="Sette di fiori">
+    <img src="cards/8C.svg" data-cardid="8C" class="card" alt="Otto di fiori">
+    <img src="cards/9C.svg" data-cardid="9C" class="card" alt="Nove di fiori">
+    <img src="cards/10C.svg" data-cardid="10C" class="card" alt="Dieci di fiori">
+    <img src="cards/11C.svg" data-cardid="11C" class="card" alt="Jack di fiori">
+    <img src="cards/12C.svg" data-cardid="12C" class="card" alt="Donna di fiori">
+    <img src="cards/13C.svg" data-cardid="13C" class="card" alt="Re di fiori">
+</div>
+<div class="group">
+    <img src="cards/1S.svg" data-cardid="1S" class="card" alt="Asso di picche">
+    <img src="cards/2S.svg" data-cardid="2S" class="card" alt="Due di picche">
+    <img src="cards/3S.svg" data-cardid="3S" class="card" alt="Tre di picche">
+    <img src="cards/4S.svg" data-cardid="4S" class="card" alt="Quattro di picche">
+    <img src="cards/5S.svg" data-cardid="5S" class="card" alt="Cinque di picche">
+    <img src="cards/6S.svg" data-cardid="6S" class="card" alt="Sei di picche">
+    <img src="cards/7S.svg" data-cardid="7S" class="card" alt="Sette di picche">
+    <img src="cards/8S.svg" data-cardid="8S" class="card" alt="Otto di picche">
+    <img src="cards/9S.svg" data-cardid="9S" class="card" alt="Nove di picche">
+    <img src="cards/10S.svg" data-cardid="10S" class="card" alt="Dieci di picche">
+    <img src="cards/11S.svg" data-cardid="11S" class="card" alt="Jack di picche">
+    <img src="cards/12S.svg" data-cardid="12S" class="card" alt="Donna di picche">
+    <img src="cards/13S.svg" data-cardid="13S" class="card" alt="Re di picche">
+</div>
+
+<img id="titolo" src="img/logo.png" alt="Stomazzo">
+
+
+</div>
+
+
+<div id="scelta">
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="" alt="" class="card">
+            </div>
+            <div class="flip-card-back">
+                <img class="back-card" src="cards/back.svg" alt="">
+                <img class="photo" src="cards/back.svg" hidden alt="">
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="annulla-scelta">‹ Annulla scelta</button>
+
+    <video id="video" autoplay playsinline></video>
+<canvas id="canvas" width="400" height="600"></canvas>
+</div>
+
+
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "short_name": "Stomazzo",
+    "name": "Stomazzo",
+    "icons": [
+      {
+        "src": "img/icon.svg",
+        "type": "image/svg+xml",
+        "sizes": "any",
+        "purpose": "any"
+      },
+      {
+        "src": "img/icon.svg",
+        "type": "image/svg+xml",
+        "sizes": "any",
+        "purpose": "maskable"
+      },
+      {
+        "src": "img/icon-mono.png",
+        "type": "image/png",
+        "sizes": "any",
+        "purpose": "monochrome"
+      }
+    ],
+    "start_url": "index.html",
+    "background_color": "#153b02",
+    "orientation": "portrait-primary",
+    "display_override": ["window-controls-overlay"],
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#153b02",
+    "description": "Indovinerò la carta che hai scelto!"
+}
