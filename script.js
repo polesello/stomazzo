@@ -101,9 +101,9 @@ const mazzo = document.getElementById('mazzo')
 let mode = 'picche'
 let isFaceDown = false
 
-// iWillChange è un timeout che fa partire la funzione magica dopo 10 secondi
+// magicTimer è un timeout che fa partire la funzione magica dopo 10 secondi
 // magicFunction è la funzione magica da eseguire
-let iWillChange = null
+let magicTimer = null
 let magicFunction = null
 
 // legge il parametro card dalla query string
@@ -488,22 +488,22 @@ if (typeof(DeviceOrientationEvent) !== "undefined" && typeof(DeviceOrientationEv
 
 
 function checkUpsideDown(event) {
-    // Il telefono viene messo a faccia in giù
-    // dopo 10 secondi la carta cambia
+    // Controlla se il telefono viene messo a faccia in giù
+    // e dopo 10 secondi fa partire la funzione magica
 
     if (magicFunction) {
         // facedown è un booleano che indica se il telefono è a faccia in giù
         // calcolato in base alle proprietà beta e gamma dell'evento deviceorientation
-        // iWillChange è un timeout che fa partire la funzione magica dopo 10 secondi
+        // magicTimer è un timeout che fa partire la funzione magica dopo 10 secondi
         const enteringFaceDown = Math.abs(event.beta) > 150 && Math.abs(event.gamma) < 30
         const exitingFaceDown = Math.abs(event.beta) < 130 && Math.abs(event.gamma) > 50
         if (!isFaceDown && enteringFaceDown) {
             isFaceDown = true
-            iWillChange = setTimeout(magicFunction, 10000)
+            magicTimer = setTimeout(magicFunction, 10000)
         } 
         if (isFaceDown && exitingFaceDown) {
             isFaceDown = false
-            clearTimeout(iWillChange)
+            clearTimeout(magicTimer)
         }
     }
 }
